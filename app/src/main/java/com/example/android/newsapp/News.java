@@ -17,9 +17,6 @@ public class News {
         this.mUrlToImage = mUrlToImage;
     }
 
-    public String getmName() {
-        return mName;
-    }
 
     public String getSectionName() {
         return sectionName;
