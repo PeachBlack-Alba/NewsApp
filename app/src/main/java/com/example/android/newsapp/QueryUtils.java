@@ -92,7 +92,7 @@ public class QueryUtils {
                 Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
+            Log.e(LOG_TAG, "Problem retrieving the news JSON results.", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -106,6 +106,7 @@ public class QueryUtils {
         }
         return jsonResponse;
     }
+
     /**
      * Convert the {@link InputStream} into a String which contains the
      * whole JSON response from the server.
@@ -123,7 +124,8 @@ public class QueryUtils {
         }
         return output.toString();
     }
-     /**
+
+    /**
      * Return a list of {@link News} objects that has been built up from
      * parsing the given JSON response.
      */
@@ -133,7 +135,7 @@ public class QueryUtils {
             return null;
         }
 
-        // Create an empty ArrayList that we can start adding earthquakes to
+        // Create an empty ArrayList that we can start adding news to
         List<News> news = new ArrayList<>();
 
         // Try to parse the JSON response string. If there's a problem with the way the JSON
@@ -147,46 +149,43 @@ public class QueryUtils {
             JSONObject response = baseJsonResponse.getJSONObject("response");
             JSONArray NewsArray = response.getJSONArray("results");
 
-            // For each earthquake in the earthquakeArray, create an {@link Earthquake} object
+            // For each new in the newsArray, create an {@link news} object
             for (int i = 0; i < NewsArray.length(); i++) {
 
-                // Get a single earthquake at position i within the list of earthquakes
+                // Get a single new at position i within the list of news
                 JSONObject currentNews = NewsArray.getJSONObject(i);
-
 
 
                 // Extract the value for the key called "mag"
                 String title = currentNews.getString("sectionName");
 
                 // Extract the value for the key called "place"
-                String  webTitle= currentNews.getString("webTitle");
+                String webTitle = currentNews.getString("webTitle");
 
                 // Extract the value for the key called "time"
                 String webPublicationDate = currentNews.getString("webPublicationDate");
 
                 // Extract the value for the key called "url"
                 String newsURL;
-                if(currentNews.has("webUrl")){
+                if (currentNews.has("webUrl")) {
                     newsURL = currentNews.getString("webUrl");
-                }
-                else{
+                } else {
                     newsURL = null;
                 }
                 // News image
                 String thumbnail;
-                if(currentNews.has("fields")){
+                if (currentNews.has("fields")) {
                     JSONObject fields = currentNews.getJSONObject("fields");
                     thumbnail = fields.getString("thumbnail");
-                }
-                else{
+                } else {
                     thumbnail = null;
                 }
 
-                // Create a new {@link Earthquake} object with the magnitude, location, time,
+                // Create a new {@link news} object with the magnitude, location, time,
                 // and url from the JSON response.
-                News newsdata = new News("newsName",title, webTitle, webPublicationDate, newsURL,thumbnail);
+                News newsdata = new News("newsName", title, webTitle, webPublicationDate, newsURL, thumbnail);
 
-                // Add the new {@link Earthquake} to the list of earthquakes.
+                // Add the new {@link new} to the list of news.
                 news.add(newsdata);
             }
 
@@ -197,7 +196,7 @@ public class QueryUtils {
             Log.e("QueryUtils", "Problem parsing the News JSON results", e);
         }
 
-        // Return the list of earthquakes
+        // Return the list of news
         return news;
     }
 

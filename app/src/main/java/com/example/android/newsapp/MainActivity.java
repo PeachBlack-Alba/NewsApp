@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
 
     private static final int news_LOADER_ID = 1;
 
-    /** Adapter for the list of earthquakes */
+    /** Adapter for the list of news */
     private NewsAdapter mAdapter;
 
     /** TextView that is displayed when the list is empty */
