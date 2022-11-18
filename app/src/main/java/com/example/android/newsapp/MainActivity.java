@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
         uriBuilder.appendQueryParameter("show-fields", "thumbnail");
         uriBuilder.appendQueryParameter("page-size", mNewsLimit);
         uriBuilder.appendQueryParameter("order-by", mOrderBy);
+        uriBuilder.appendQueryParameter("show-tags=contributor", "");
 
         return new NewsLoader(this, uriBuilder.toString());
     }

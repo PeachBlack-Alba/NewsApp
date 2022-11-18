@@ -45,10 +45,10 @@ public class QueryUtils {
         }
 
         // Extract relevant fields from the JSON response and create a list of {@link Earthquake}s
-        List<News> earthquakes = extractFeatureFromJson(jsonResponse);
+        List<News> news = extractFeatureFromJson(jsonResponse);
 
         // Return the list of {@link Earthquake}s
-        return earthquakes;
+        return news;
     }
 
     private static URL createUrl(String stringUrl) {
