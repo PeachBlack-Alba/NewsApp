@@ -7,14 +7,16 @@ public class News {
     private String webPublicationDate;
     private String webUrl;
     private String mUrlToImage;
+    private String contributor;
 
-    public News(String mName, String sectionName, String webTitle, String webPublicationDate, String webUrl, String mUrlToImage) {
+    public News(String mName, String sectionName, String webTitle, String webPublicationDate, String webUrl, String mUrlToImage, String contributor) {
         this.mName = mName;
         this.sectionName = sectionName;
         this.webTitle = webTitle;
         this.webPublicationDate = webPublicationDate;
         this.webUrl = webUrl;
         this.mUrlToImage = mUrlToImage;
+        this.contributor = contributor;
     }
 
 
