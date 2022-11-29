@@ -165,10 +165,14 @@ public class QueryUtils {
                 // Extract the value for the key called "time"
                 String webPublicationDate = currentNews.getString("webPublicationDate");
 
+                JSONArray authorsTags = currentNews.getJSONArray("tags");
+                Log.d("Authors Array", String.valueOf(authorsTags));
+                Log.d("Author", authorsTags.getJSONObject(0).getString("firstName") + " " + authorsTags.getJSONObject(0).getString("lastName"));
+
                 //Get the first name
-                String newsAuthorFirstName = currentNews.optString("firstName");
+                String newsAuthorFirstName =  authorsTags.getJSONObject(0).getString("firstName");
                 //Get the last name
-                String newsAuthorLastName = currentNews.optString("lastName");
+                String newsAuthorLastName =  authorsTags.getJSONObject(0).getString("lastName");
                 //Get the name of the author
                 String newsAuthor = newsAuthorFirstName + " " + newsAuthorLastName;
                 // Extract the value for the key called "url"
@@ -189,7 +193,7 @@ public class QueryUtils {
 
                 // Create a new {@link news} object with the magnitude, location, time,
                 // and url from the JSON response.
-                News newsdata = new News("newsName", title, webTitle, webPublicationDate, newsURL, thumbnail, newsAuthor);
+                News newsdata = new News("newsName", title, webTitle, webPublicationDate, newsURL, thumbnail, newsAuthor );
 
                 // Add the new {@link new} to the list of news.
                 news.add(newsdata);

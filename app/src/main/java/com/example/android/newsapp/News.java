@@ -9,6 +9,9 @@ public class News {
     private String mUrlToImage;
     private String newsAuthor;
 
+/*    private String newsAuthorFirstName;
+    private String newsAuthorLastName;*/
+
     public News(String mName, String sectionName, String webTitle, String webPublicationDate, String webUrl, String mUrlToImage, String newsAuthor) {
         this.mName = mName;
         this.sectionName = sectionName;
