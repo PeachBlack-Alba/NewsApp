@@ -92,7 +92,7 @@
                 android:textSize="14sp"
                 tools:text="@string/news_section" />
             <TextView
-                android:id="@+id/contributor"
+                android:id="@+id/authorName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"

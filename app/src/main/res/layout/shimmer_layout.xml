@@ -13,8 +13,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="5dp"
             android:background="#292828"
             android:orientation="vertical">
@@ -23,8 +23,8 @@
                 android:id="@+id/newsImage"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:scaleType="centerCrop"
-                android:background="#3C3B3B" />
+                android:background="#3C3B3B"
+                android:scaleType="centerCrop" />
 
 
             <TextView
@@ -32,17 +32,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginRight="4dp"
+                android:background="#1E1E1E"
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
                 android:textColor="#C8C2C2"
-                android:textSize="20sp"
-                android:background="#1E1E1E"/>
+                android:textSize="20sp" />
 
-            
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -57,14 +56,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="4dp"
+                    android:background="#1E1E1E"
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="14sp"
-                    tools:text="Name of the author"
-                    android:background="#1E1E1E"/>
+                    tools:text="Name of the author" />
 
                 <TextView
                     android:id="@+id/newsDate"
@@ -74,12 +73,25 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="4dp"
+                    android:background="#1E1E1E"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="14sp"
-                    tools:text="Date of the news"
-                    android:background="#1E1E1E"/>
+                    tools:text="Date of the news" />
+
+                <TextView
+                    android:id="@+id/authorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
 
             </RelativeLayout>
         </LinearLayout>

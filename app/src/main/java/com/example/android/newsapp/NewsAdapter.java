@@ -20,6 +20,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
     private final Context mContext;
     private static final String DATE_SEPARATOR = "T";
     private static final String TIME_SEPARATOR = "Z";
+
     public NewsAdapter(@NonNull Context context, List<News> newsdata) {
         super(context, 0, newsdata);
         mContext = context;
@@ -34,7 +35,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
                     (R.layout.news_list_item, parent, false);
         }
 
-        News currentNews=getItem(position);
+        News currentNews = getItem(position);
 
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.newsImage);
 
@@ -44,12 +45,14 @@ public class NewsAdapter extends ArrayAdapter<News> {
                 .into(imageView);
 
 
-
-        TextView news=listItemView.findViewById(R.id.newsTitle);
+        TextView news = listItemView.findViewById(R.id.newsTitle);
         news.setText(currentNews.getWebTitle());
 
         TextView textViewSectionName = (TextView) listItemView.findViewById(R.id.sectionName);
         textViewSectionName.setText(currentNews.getSectionName());
+
+        TextView textViewAuthorName = (TextView) listItemView.findViewById(R.id.authorName);
+        textViewAuthorName.setText(currentNews.getNewsAuthor());
 
         String publishedAt = currentNews.getWebPublicationDate();
 
@@ -57,13 +60,13 @@ public class NewsAdapter extends ArrayAdapter<News> {
         String time = "";
         String actualTime = "";
 
-        if(publishedAt.contains(DATE_SEPARATOR)){
+        if (publishedAt.contains(DATE_SEPARATOR)) {
             String[] parts = publishedAt.split(DATE_SEPARATOR);
             date = parts[0];
             time = parts[1];
         }
 
-        if(time.contains(TIME_SEPARATOR)){
+        if (time.contains(TIME_SEPARATOR)) {
             String[] parts = time.split(TIME_SEPARATOR);
             actualTime = parts[0];
         }

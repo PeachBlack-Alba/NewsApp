@@ -165,14 +165,12 @@ public class QueryUtils {
                 // Extract the value for the key called "time"
                 String webPublicationDate = currentNews.getString("webPublicationDate");
 
-                // Extract the value for the key called "author"
-                String contributor;
-                if (currentNews.has("fields")) {
-                    JSONObject fields = currentNews.getJSONObject("contributor");
-                    contributor = fields.getString("contributor");
-                } else {
-                    contributor = null;
-                }
+                //Get the first name
+                String newsAuthorFirstName = currentNews.optString("firstName");
+                //Get the last name
+                String newsAuthorLastName = currentNews.optString("lastName");
+                //Get the name of the author
+                String newsAuthor = newsAuthorFirstName + " " + newsAuthorLastName;
                 // Extract the value for the key called "url"
                 String newsURL;
                 if (currentNews.has("webUrl")) {
@@ -191,7 +189,7 @@ public class QueryUtils {
 
                 // Create a new {@link news} object with the magnitude, location, time,
                 // and url from the JSON response.
-                News newsdata = new News("newsName", title, webTitle, webPublicationDate, newsURL, thumbnail,contributor);
+                News newsdata = new News("newsName", title, webTitle, webPublicationDate, newsURL, thumbnail, newsAuthor);
 
                 // Add the new {@link new} to the list of news.
                 news.add(newsdata);
